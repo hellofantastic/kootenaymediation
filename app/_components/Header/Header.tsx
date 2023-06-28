@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-//import styles from "./header.module.css";
+import { devices } from "../../constants";
 function Header() {
   return (
     <HeaderStyled>
@@ -40,10 +40,12 @@ const HeaderStyled = styled.header`
     padding: 2rem 4rem;
     min-height: 10vh;
     border-bottom: 1px solid var(--color-border);
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
-
+    @media only screen and ${devices.lg} {
+      display: flex;
+    }
     .logo {
       display: flex;
       align-items: center;

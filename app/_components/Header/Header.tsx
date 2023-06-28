@@ -2,16 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import styles from "../../page.module.css";
-
+import styles from "./header.module.css";
 function Header() {
   return (
-    <HeaderStyled>
-      <nav>
+    <header>
+      <nav className={styles.nav}>
         <div className="logo">
-          <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" className={styles.vercelLogo} width={350} height={100} priority />
+          <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
         </div>
-        <ul className="nav-items">
+        <ul className={styles.navitems}>
           <li>
             <a href="#">Section 1</a>
           </li>
@@ -26,7 +25,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-    </HeaderStyled>
+    </header>
   );
 }
 

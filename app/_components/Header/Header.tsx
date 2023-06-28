@@ -2,15 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import styles from "./header.module.css";
+//import styles from "./header.module.css";
 function Header() {
   return (
-    <header>
-      <nav className={styles.nav}>
+    <HeaderStyled>
+      <nav>
         <div className="logo">
           <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
         </div>
-        <ul className={styles.navitems}>
+        <ul className="nav-items">
           <li>
             <a href="#">Section 1</a>
           </li>
@@ -21,14 +21,20 @@ function Header() {
             <a href="#">Section 3</a>
           </li>
           <li>
-            <a href="#">Book an Appointment</a>
+            <Button>Book an Appointment</Button>
           </li>
         </ul>
       </nav>
-    </header>
+    </HeaderStyled>
   );
 }
-
+const Button = styled.button`
+  background-color: #f1af7c;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 30px;
+`;
 const HeaderStyled = styled.header`
   nav {
     padding: 2rem 4rem;

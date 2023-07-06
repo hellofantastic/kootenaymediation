@@ -1,44 +1,41 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styled from "styled-components";
+import Link from "next/link";
+import styled from "@emotion/styled";
+import Button from "../Button/Button";
 import { devices } from "../../constants";
 function Header() {
   return (
     <HeaderStyled>
       <nav>
         <div className="logo">
-          <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
+          <Link href="/">
+            <Image src="/images/kootenay-mediation-logo-v2.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
+          </Link>
         </div>
         <ul className="nav-items">
           <li>
-            <a href="#">Section 1</a>
+            <a href="#">Mediation</a>
           </li>
           <li>
-            <a href="#">Section 2</a>
+            <a href="#">Collaborative Law</a>
           </li>
           <li>
-            <a href="#">Section 3</a>
+            <a href="#">Process</a>
           </li>
           <li>
-            <Button>Book an Appointment</Button>
+            <Button name="Book a Consultation" />
           </li>
         </ul>
       </nav>
     </HeaderStyled>
   );
 }
-const Button = styled.button`
-  background-color: #f1af7c;
-  color: #fff;
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 30px;
-`;
+
 const HeaderStyled = styled.header`
   nav {
-    padding: 2rem 4rem;
-    min-height: 10vh;
+    padding: 1rem 2rem;
     border-bottom: 1px solid var(--color-border);
     display: block;
     justify-content: space-between;
@@ -56,7 +53,7 @@ const HeaderStyled = styled.header`
     .nav-items {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
       color: #548285;
       li {
@@ -65,41 +62,6 @@ const HeaderStyled = styled.header`
         &:hover {
           color: #ddd;
         }
-      }
-    }
-  }
-
-  .header-content {
-    padding: 0 10rem 5rem 10rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-    min-height: calc(100vh - 10vh);
-
-    .text-content {
-      > h1 {
-        font-size: clamp(2rem, 5vw, 5rem);
-        color: #f2994a;
-        transition: all 0.01s linear;
-        padding-bottom: 1.5rem;
-      }
-
-      .buttons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2.5rem;
-      }
-    }
-
-    .image-content .image {
-      padding: 1rem;
-      border-radius: 8px;
-      background-color: var(--color-bg);
-      border: 1px solid var(--color-border);
-
-      img {
-        border-radius: 8px;
       }
     }
   }

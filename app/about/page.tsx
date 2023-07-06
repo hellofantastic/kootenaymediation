@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SectionWrapper } from "../_components/SectionWrapper/SectionWrapper";
 import styles from "../page.module.css";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  return <div className={styles.main}>About</div>;
+  return (
+    <SectionWrapper>
+      <div className={styles.main}>About</div>
+    </SectionWrapper>
+  );
 }

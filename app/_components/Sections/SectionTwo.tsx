@@ -12,9 +12,9 @@ export const SectionTwo = () => {
         <GridItem>
           <h2>Mediation over Court</h2>
           <p>
-            Mediation offers a valuable opportunity for individuals to take control of resolving their issues on their own terms. By engaging in mediation, involved parties can potentially save time, money, and emotional distress. In many cases, it
-            is beneficial for separating individuals to find their own solutions and direct whatever resources they have towards their children's well-being or their own financial stability, rather than fighting in court. Mediators can offer parties
-            legal information, provide suggestions and alternatives, and formalize agreements. Mediation may not be suitable in all situations, particularly where there is family violence.
+            {
+              "Mediation offers a valuable opportunity for individuals to take control of resolving their issues on their own terms. By engaging in mediation, involved parties can potentially save time, money, and emotional distress. In many cases, it is beneficial for separating individuals to find their own solutions and direct whatever resources they have towards their children's well-being or their own financial stability, rather than fighting in court. Mediators can offer parties legal information, provide suggestions and alternatives, and formalize agreements. Mediation may not be suitable in all situations, particularly where there is family violence."
+            }
           </p>
         </GridItem>
       </Grid>

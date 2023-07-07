@@ -59,7 +59,7 @@ export const ContactForm = () => {
   return (
     <SectionWrapper width={640}>
       <h2>Book a Consultation</h2>
-      <p>Response emails back to you will come from &#x6a;&#x68;&#x40;&#x6a;&#x68;&#x6c;&#x6f;&#x2e;&#x63;&#x61;</p>
+      <p>Please provide the following information. </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputField label={"First Name *"} name="firstName" errors={errors} register={register} required />
         <InputField label={"Last Name *"} name="lastName" errors={errors} register={register} required />

@@ -1,59 +1,48 @@
 "use client";
-import { Fragment, FormEvent, useState, CSSProperties } from "react";
-import { useForm } from "react-hook-form";
+import { Fragment, useState, CSSProperties } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { Grid, GridItem } from "@chakra-ui/react";
+import { Ring } from "@uiball/loaders";
+//App
 import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 import Button from "../Button/Button";
 
-import { CustomFormProps, InputFieldProps } from "./formtypes";
+import { FormValues, InputFieldProps } from "./formtypes";
 
 import "./form.css";
 
 export const ContactForm = () => {
+  const [isSubmitting, setSubmitting] = useState<boolean>(true);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormValues>();
 
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phonenumber: "",
-    message: "",
-  });
-
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
-  const handletheSubmit = async (event: FormEvent<CustomFormProps>) => {
-    event.preventDefault();
-
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    setSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
       if (response.ok) {
+        setSubmitting(false);
         console.log("form successfully submitted", await response.json());
         // Handle success - maybe show a notification
       } else {
+        setSubmitting(false);
         console.log("submission failed");
         // Handle error - show a notification or handle error
       }
     } catch (error) {
+      setSubmitting(false);
+      //Likely network
       return error;
     }
-  };
-
-  const handleInputChange = (e: { target: { name: any; value: any } }) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
   };
 
   return (
@@ -66,24 +55,21 @@ export const ContactForm = () => {
         <InputField label={"Email *"} name="email" errors={errors} register={register} required />
         <InputField label={"Phone"} name="phone" errors={errors} register={register} />
         <MessageBox label={"Message *"} name="message" errors={errors} register={register} required />
-
-        <Button name="Submit" />
+        <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
+          <GridItem>
+            <Button name="Submit" disabled={isSubmitting ? true : false} />
+          </GridItem>
+          <GridItem display="flex" alignItems="center" justifyContent="right">
+            {isSubmitting === true ? (
+              <>
+                <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />
+              </>
+            ) : null}
+          </GridItem>
+        </Grid>
       </form>
     </SectionWrapper>
   );
-};
-
-const inputStyles: CSSProperties = {
-  border: "0",
-  borderRadius: "3px",
-  padding: "1.4rem 15px",
-  width: "100%",
-  fontFamily: "inherit",
-  fontSize: "1.6rem",
-  color: "#oc1e2c",
-  backgroundColor: "#fff",
-  appearance: "none",
-  outline: "fb3a7a",
 };
 
 const InputField = ({ label, name, register, errors, required }: InputFieldProps) => {
@@ -115,7 +101,7 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
                 ...register(name, {
                   required: true,
                   validate: {
-                    properEmail: (v) => emailStructure.test(v),
+                    properEmail: (v: string) => emailStructure.test(v),
                   },
                 }),
               }

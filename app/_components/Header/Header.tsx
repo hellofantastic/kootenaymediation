@@ -22,6 +22,9 @@ function Header() {
             <a href="#">Collaborative Law</a>
           </li>
           <li>
+            <a href="#">About</a>
+          </li>
+          <li>
             <a href="#">Process</a>
           </li>
           <li>

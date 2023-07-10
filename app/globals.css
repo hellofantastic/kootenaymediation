@@ -37,8 +37,8 @@
   --card-border-rgb: 131, 134, 135;
 
   --color-border: #eee;
-  --color-button-bg: #f1af7c;
-  --color-button-hover: #fcbc90;
+  --color-button-bg: #79b4b7; /* #f1af7c;*/
+  --color-button-hover: #8cced2; /* #fcbc90;*/
 }
 
 * {
@@ -80,11 +80,17 @@ h3,
 h4,
 h5,
 h6 {
-  color: #548285;
+  color: #878579; /* #548285*/
   line-height: 1;
   margin-bottom: 1rem;
 }
-
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
+}
 .footer a {
-  color: #f0b07c;
+  color: #79b4b7; /* #f0b07c;*/
 }

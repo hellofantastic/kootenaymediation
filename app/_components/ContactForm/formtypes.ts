@@ -11,11 +11,17 @@ export interface CustomElements extends HTMLFormControlsCollection {
 export interface CustomFormProps extends HTMLFormElement {
   readonly elements: CustomElements;
 }
-
+export type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 export type InputFieldProps = {
   label: string;
   name: string;
-  register: UseFormRegister<FieldValues>;
+  register: any;
   errors: FieldErrors;
   required?: boolean;
 };

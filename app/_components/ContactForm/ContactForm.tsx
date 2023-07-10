@@ -1,23 +1,32 @@
 "use client";
 import { Fragment, useState, CSSProperties } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, useBreakpoint, useBreakpointValue } from "@chakra-ui/react";
 import { Ring } from "@uiball/loaders";
+
 //App
 import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 import Button from "../Button/Button";
-
+import useBreakpointLeftorRight from "@/app/_hooks/useBreakpointLeftorRight";
 import { FormValues, InputFieldProps } from "./formtypes";
-
 import "./form.css";
 
 export const ContactForm = () => {
-  const [isSubmitting, setSubmitting] = useState<boolean>(true);
+  const alignLeftOrRight = useBreakpointLeftorRight();
+
+  const [isSubmitting, setSubmitting] = useState<boolean>(false);
+  const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>();
+
+  const resetForm = () => {
+    reset();
+  };
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setSubmitting(true);
@@ -31,12 +40,10 @@ export const ContactForm = () => {
       });
       if (response.ok) {
         setSubmitting(false);
-        console.log("form successfully submitted", await response.json());
-        // Handle success - maybe show a notification
+        setSubmitSuccess(true);
+        resetForm();
       } else {
         setSubmitting(false);
-        console.log("submission failed");
-        // Handle error - show a notification or handle error
       }
     } catch (error) {
       setSubmitting(false);
@@ -55,16 +62,17 @@ export const ContactForm = () => {
         <InputField label={"Email *"} name="email" errors={errors} register={register} required />
         <InputField label={"Phone"} name="phone" errors={errors} register={register} />
         <MessageBox label={"Message *"} name="message" errors={errors} register={register} required />
-        <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
+        <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
           <GridItem>
             <Button name="Submit" disabled={isSubmitting ? true : false} />
           </GridItem>
-          <GridItem display="flex" alignItems="center" justifyContent="right">
+          <GridItem display="flex" alignItems="center" justifyContent={alignLeftOrRight}>
             {isSubmitting === true ? (
               <>
                 <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />
               </>
             ) : null}
+            {submitSuccess ? "Thank you, your request has been recieved." : null}
           </GridItem>
         </Grid>
       </form>

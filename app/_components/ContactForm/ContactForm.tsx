@@ -14,7 +14,7 @@ import "./form.css";
 export const ContactForm = () => {
   const alignLeftOrRight = useBreakpointLeftorRight();
 
-  const [isSubmitting, setSubmitting] = useState<boolean>(true);
+  const [isSubmitting, setSubmitting] = useState<boolean>(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
   const {
@@ -53,7 +53,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <SectionWrapper width={640}>
+    <SectionWrapper width={640} id="book-appointment">
       <h2>Book a Consultation</h2>
       <p>Please provide the following information. </p>
       <form onSubmit={handleSubmit(onSubmit)}>

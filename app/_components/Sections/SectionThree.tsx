@@ -4,7 +4,7 @@ import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 
 export const SectionThree = () => {
   return (
-    <SectionWrapper className="knobs">
+    <SectionWrapper id="collaborative">
       <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={6}>
         <GridItem>
           <h2>Collaborative Law </h2>

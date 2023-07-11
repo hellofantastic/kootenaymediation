@@ -4,7 +4,7 @@ import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 
 export const SectionFour = () => {
   return (
-    <SectionWrapper width={640}>
+    <SectionWrapper width={640} id="process">
       <Grid templateColumns={{ base: "1fr" }} gap={6}>
         <GridItem>
           <h2>Mediation Process: What to Expect</h2>

@@ -14,7 +14,7 @@ import "./form.css";
 export const ContactForm = () => {
   const alignLeftOrRight = useBreakpointLeftorRight();
 
-  const [isSubmitting, setSubmitting] = useState<boolean>(false);
+  const [isSubmitting, setSubmitting] = useState<boolean>(true);
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
   const {

@@ -1,28 +1,40 @@
 "use client";
-import React from "react";
-import { Show, Hide } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Show, Grid, GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
+
+//App
+import { Sidebar } from "../MobileSidebar/Sidebar";
+import { Burger, MobileMenu } from "../Nav";
 import Button from "../Button/Button";
 import { devices } from "../../constants";
+
 function Header() {
+  const [open, setOpen] = useState<boolean>(false);
+  const handleMenuCloseOnNavigate = () => {
+    setOpen(false);
+  };
   return (
     <HeaderStyled>
       <nav>
         <div className="logo">
           <Link href="/">
-            <Image src="/images/kootenay-mediation-logo-v2.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
+            <Image src="/images/kootenay-mediation-logo-v2.svg" alt="Kootenay Mediation Logo" width={325} height={100} priority />
           </Link>
         </div>
-        <Show above="lg">
+        <Show breakpoint="(min-width: 1024px)">
           <ul className="nav-items">
             <li>
-              <a href="#">Mediation</a>
+              <Link href="#mediation" scroll={false}>
+                Mediation
+              </Link>
             </li>
             <li>
               <a href="#">Collaborative Law</a>
             </li>
+
             <li>
               <a href="#">About</a>
             </li>
@@ -34,6 +46,12 @@ function Header() {
             </li>
           </ul>
         </Show>
+        <Show breakpoint="(max-width: 1024px)">
+          <div>
+            <Burger open={open} setOpen={setOpen} />
+            <Sidebar open={open} setOpen={setOpen} />
+          </div>
+        </Show>
       </nav>
     </HeaderStyled>
   );
@@ -43,7 +61,7 @@ const HeaderStyled = styled.header`
   nav {
     padding: 1rem 2rem;
     border-bottom: 1px solid var(--color-border);
-    display: block;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     @media only screen and ${devices.lg} {
@@ -59,12 +77,12 @@ const HeaderStyled = styled.header`
     .nav-items {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+
       list-style: none;
       color: #548285;
       li {
         transition: all 0.2s ease-in-out;
-
+        margin-right: 1.25rem;
         &:hover {
           color: #ddd;
         }

@@ -7,15 +7,13 @@ import styled from "@emotion/styled";
 
 //App
 import { Sidebar } from "../MobileSidebar/Sidebar";
-import { Burger, MobileMenu } from "../Nav";
+import Burger from "../MobileSidebar/Burger";
 import Button from "../Button/Button";
 import { devices } from "../../constants";
 
 function Header() {
   const [open, setOpen] = useState<boolean>(false);
-  const handleMenuCloseOnNavigate = () => {
-    setOpen(false);
-  };
+
   return (
     <HeaderStyled>
       <nav>

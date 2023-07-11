@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Show, Hide } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
@@ -14,23 +15,25 @@ function Header() {
             <Image src="/images/kootenay-mediation-logo-v2.svg" alt="Kootenay Mediation Logo" width={350} height={100} priority />
           </Link>
         </div>
-        <ul className="nav-items">
-          <li>
-            <a href="#">Mediation</a>
-          </li>
-          <li>
-            <a href="#">Collaborative Law</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Process</a>
-          </li>
-          <li>
-            <Button name="Book a Consultation" />
-          </li>
-        </ul>
+        <Show above="lg">
+          <ul className="nav-items">
+            <li>
+              <a href="#">Mediation</a>
+            </li>
+            <li>
+              <a href="#">Collaborative Law</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Process</a>
+            </li>
+            <li>
+              <Button name="Book a Consultation" />
+            </li>
+          </ul>
+        </Show>
       </nav>
     </HeaderStyled>
   );
@@ -64,6 +67,10 @@ const HeaderStyled = styled.header`
 
         &:hover {
           color: #ddd;
+        }
+        a,
+        button {
+          font-size: 0.95rem;
         }
       }
     }

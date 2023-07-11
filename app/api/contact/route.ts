@@ -17,7 +17,8 @@ export async function POST(request: NextRequest) {
   });
 
   const messageFromWebForm = "Request for Consultation from: \n\n" + "Name: " + data.firstName + " " + data.lastName + "\n" + "Email: " + data.email + "\n" + "Phone: " + data.phone + "\n\n" + "Message: \n" + data.message + "\n";
-  const autoResponseToUser = "Your request for consultation or more infomation has been received by Kootany Mediation. I will be responding to you shortly.  ";
+  const autoResponseToUser =
+    "Hello " + data.firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "Judah Harrsion \n Kootenay Mediation \nBarrister & Solicitor";
 
   //Message to Kootany Mediation
   try {
@@ -27,7 +28,14 @@ export async function POST(request: NextRequest) {
       subject: "Request for Mediation Consultation",
       text: messageFromWebForm,
     });
-    console.log("info", info);
+    if (info.messageId) {
+      let info = await transporter.sendMail({
+        from: `Kootenay Mediation <${"hello@thegalacticdesignbureau.com"}>`,
+        to: data.email,
+        subject: "Kootenay Mediation Mediation Consultation",
+        text: autoResponseToUser,
+      });
+    }
     return NextResponse.json({ message: "Request Sent" + process.version + Date.now() });
   } catch (err) {
     console.error("MAIL ERROR", err);

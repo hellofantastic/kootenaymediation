@@ -94,3 +94,11 @@ h6 {
 .footer a {
   color: #79b4b7; /* #f0b07c;*/
 }
+.privacy ul,
+.privacy ol {
+  margin-bottom: 2rem;
+}
+.privacy ul li,
+.privacy ol li {
+  margin-left: 2rem;
+}

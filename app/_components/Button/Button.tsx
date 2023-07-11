@@ -29,7 +29,7 @@ function Button({ name, icon, color, border, disabled }: ButtonProps) {
 }
 
 const ButtonStyled = styled.button`
-  padding: 0.6rem 2rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 50px;
   border: none;
   cursor: pointer;
@@ -39,6 +39,7 @@ const ButtonStyled = styled.button`
   gap: 1rem;
   color: white;
   background: var(--color-button-bg);
+  font-size: 0.95rem;
   &:disabled {
     background-color: #ddd !important;
     color: #eee !important;

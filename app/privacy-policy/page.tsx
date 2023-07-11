@@ -15,8 +15,8 @@ export default function Privacy() {
         <h1>Privacy Policy</h1>
         <h2>Privacy Policy for kootenaymediation.ca </h2>
         <ul>
-          <li>Type of website: Corporate Informational</li>
-          <li> Effective date: 1st day of January, 2016 </li>
+          <li>Type of website: Informational</li>
+          <li> Effective date: 1st day of Sepetember, 2023 </li>
         </ul>
         <p>kootenaymediation.ca (the "Site") is owned and operated by Judah Harrison Barrister & Solicitor. Judah Harrison is the data controller and can be contacted at: jh@jhlo.ca</p>
 
@@ -57,7 +57,9 @@ export default function Privacy() {
 
         <h2>Personal Data We Collect</h2>
         <p>We only collect data that helps us achieve the purpose set out in this PrivacyPolicy. We will not collect any additional data beyond the data listed below without notifying you first.</p>
-        <u>Data Collected Automatically</u>
+        <h3>
+          <u>Data Collected Automatically</u>
+        </h3>
         <p>When you visit and use our Site, we may automatically collect and store the following information:</p>
         <ol>
           <li>Location;</li>
@@ -66,7 +68,9 @@ export default function Privacy() {
           <li>Content viewed.</li>
         </ol>
         <br />
-        <u>Data Collected in a Non-Automatic Way</u>
+        <h3>
+          <u>Data Collected in a Non-Automatic Way</u>
+        </h3>
         <p>We may also collect the following data when you perform certain functions on our Site:</p>
         <ol>
           <li>First and last name;</li>
@@ -91,11 +95,6 @@ export default function Privacy() {
           <li>Communication.</li>
         </ol>
         <br />
-        <h2>Who We Share Personal Data With</h2>
-        <p>
-          <strong>Employees</strong>
-        </p>
-        <p>We may disclose user data to any member of our organization who reasonably needs access to user data to achieve the purposes set out in this Privacy Policy. </p>
 
         <h2>Who We Share Personal Data With</h2>
         <p>We will not sell or share your data with other third parties, except in the following cases:</p>

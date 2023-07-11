@@ -1,4 +1,17 @@
+"use client";
 import styled from "@emotion/styled";
+
+const Burger = ({ open, setOpen, ...props }) => {
+  const isExpanded = open ? true : false;
+
+  return (
+    <StyledBurger aria-label="Toggle Menu" aria-expanded={isExpanded} open={open} onClick={() => setOpen(!open)} {...props}>
+      <span />
+      <span />
+    </StyledBurger>
+  );
+};
+export default Burger;
 
 const StyledBurger = styled.button`
   font-size: 32px;
@@ -38,15 +51,3 @@ const StyledBurger = styled.button`
     }
   }
 `;
-
-const Burger = ({ open, setOpen, ...props }) => {
-  const isExpanded = open ? true : false;
-
-  return (
-    <StyledBurger aria-label="Toggle Menu" aria-expanded={isExpanded} open={open} onClick={() => setOpen(!open)} {...props}>
-      <span />
-      <span />
-    </StyledBurger>
-  );
-};
-export default Burger;

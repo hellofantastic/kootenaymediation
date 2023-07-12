@@ -1,7 +1,7 @@
 "use client";
 import { Fragment, useState, CSSProperties } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Grid, GridItem, useBreakpoint, useBreakpointValue } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { Ring } from "@uiball/loaders";
 
 //App

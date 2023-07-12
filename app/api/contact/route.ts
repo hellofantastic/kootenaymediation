@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       let info = await transporter.sendMail({
         from: `Kootenay Mediation <${"hello@thegalacticdesignbureau.com"}>`,
         to: data.email,
-        subject: "Kootenay Mediation Mediation Consultation",
+        subject: "Kootenay Mediation Consultation",
         text: autoResponseToUser,
       });
     }

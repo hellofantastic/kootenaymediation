@@ -7,13 +7,11 @@ import { Ring } from "@uiball/loaders";
 //App
 import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 import Button from "../Button/Button";
-import useBreakpointLeftorRight from "@/app/_hooks/useBreakpointLeftorRight";
+
 import { FormValues, InputFieldProps } from "./formtypes";
 import "./form.css";
 
 export const ContactForm = () => {
-  const alignLeftOrRight = useBreakpointLeftorRight();
-
   const [isSubmitting, setSubmitting] = useState<boolean>(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
@@ -66,7 +64,7 @@ export const ContactForm = () => {
           <GridItem>
             <Button name="Submit" disabled={isSubmitting ? true : false} />
           </GridItem>
-          <GridItem display="flex" alignItems="center" justifyContent={alignLeftOrRight}>
+          <GridItem display="flex" alignItems="center">
             {isSubmitting === true ? (
               <>
                 <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />

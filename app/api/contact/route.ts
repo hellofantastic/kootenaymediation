@@ -36,7 +36,12 @@ export async function POST(request: NextRequest) {
         text: autoResponseToUser,
       });
     }
-    return NextResponse.json({ message: "Request Sent" + process.version + Date.now() });
+    return NextResponse.json(
+      { message: "Request Sent" + process.version + Date.now() },
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
     console.error("MAIL ERROR", err);
     return NextResponse.json({ message: "Message Send Error" + process.version + Date.now() });

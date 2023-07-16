@@ -17,20 +17,19 @@ export async function POST(request: NextRequest) {
   });
 
   const messageFromWebForm = "Request for Consultation from: \n\n" + "Name: " + data.firstName + " " + data.lastName + "\n" + "Email: " + data.email + "\n" + "Phone: " + data.phone + "\n\n" + "Message: \n" + data.message + "\n";
-  const autoResponseToUser =
-    "Hello " + data.firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "Judah Harrsion \n Kootenay Mediation \nBarrister & Solicitor";
+  const autoResponseToUser = "Hello " + data.firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "JH \n Kootenay Mediation \nBarrister & Solicitor";
 
   //Message to Kootany Mediation
   try {
     let info = await transporter.sendMail({
-      from: `Kootenay Mediation WebForm Contact <${"hello@thegalacticdesignbureau.com"}>`,
-      to: "dallas@thegalacticdesignbureau.com",
+      from: `Kootenay Mediation WebForm Contact <${process.env.SMTP_USER}>`,
+      to: `${process.env.SMTP_RECIPIENT}`,
       subject: "Request for Mediation Consultation",
       text: messageFromWebForm,
     });
     if (info.messageId) {
       let info = await transporter.sendMail({
-        from: `Kootenay Mediation <${"hello@thegalacticdesignbureau.com"}>`,
+        from: `Kootenay Mediation <${process.env.SMTP_USER}>`,
         to: data.email,
         subject: "Kootenay Mediation Consultation",
         text: autoResponseToUser,

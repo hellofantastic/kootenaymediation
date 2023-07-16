@@ -3,6 +3,11 @@ const nodemailer = require("nodemailer");
 
 export async function POST(request: NextRequest) {
   const data = await request.json();
+  const firstName = data.firstName;
+  const lastName = data.lastName;
+  const email = data.email;
+  const phone = data.phone;
+  const message = data.message;
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.example.com",
@@ -16,21 +21,21 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  const messageFromWebForm = "Request for Consultation from: \n\n" + "Name: " + data.firstName + " " + data.lastName + "\n" + "Email: " + data.email + "\n" + "Phone: " + data.phone + "\n\n" + "Message: \n" + data.message + "\n";
-  const autoResponseToUser = "Hello " + data.firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "JH \n Kootenay Mediation \nBarrister & Solicitor";
+  const messageFromWebForm = "Request for Consultation from: \n\n" + "Name: " + firstName + " " + lastName + "\n" + "Email: " + email + "\n" + "Phone: " + phone + "\n\n" + "Message: \n" + message + "\n";
+  const autoResponseToUser = "Hello " + firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "JH \n Kootenay Mediation \nBarrister & Solicitor";
 
   //Message to Kootany Mediation
   try {
     let info = await transporter.sendMail({
       from: `Kootenay Mediation WebForm Contact <${process.env.SMTP_USER}>`,
-      to: `${process.env.SMTP_RECIPIENT}`,
+      to: process.env.SMTP_RECIPIENT,
       subject: "Request for Mediation Consultation",
       text: messageFromWebForm,
     });
     if (info.messageId) {
       let info = await transporter.sendMail({
         from: `Kootenay Mediation <${process.env.SMTP_USER}>`,
-        to: data.email,
+        to: email,
         subject: "Kootenay Mediation Consultation",
         text: autoResponseToUser,
       });

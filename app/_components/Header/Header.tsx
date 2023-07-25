@@ -8,9 +8,7 @@ import styled from "@emotion/styled";
 //App
 import { Sidebar } from "../MobileSidebar/Sidebar";
 import Burger from "../MobileSidebar/Burger";
-import Button from "../Button/Button";
-import { devices } from "../../constants";
-
+import { HeaderStyled } from "./HeaderStyled";
 function Header() {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -19,7 +17,7 @@ function Header() {
       <nav>
         <div className="logo">
           <Link href="/">
-            <Image src="/images/kootenay-mediation-logo-v2.svg" alt="Kootenay Mediation Logo" width={325} height={100} priority />
+            <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" width={200} height={72} priority />
           </Link>
         </div>
         <Show breakpoint="(min-width: 1024px)">
@@ -30,17 +28,19 @@ function Header() {
               </Link>
             </li>
             <li>
-              <a href="#">Collaborative Law</a>
+              <a href="#collaborative-law">Collaborative Law</a>
             </li>
 
             <li>
-              <a href="#">About</a>
+              <a href="#about-judah">About</a>
             </li>
             <li>
-              <a href="#">Process</a>
+              <a href="#process">Process</a>
             </li>
             <li>
-              <Button name="Book a Consultation" />
+              <a className="appointment-button" href="#consultation">
+                Book a Consultation
+              </a>
             </li>
           </ul>
         </Show>
@@ -54,43 +54,5 @@ function Header() {
     </HeaderStyled>
   );
 }
-
-const HeaderStyled = styled.header`
-  nav {
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media only screen and ${devices.lg} {
-      display: flex;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-    }
-
-    .nav-items {
-      display: flex;
-      align-items: center;
-
-      list-style: none;
-      color: #548285;
-      li {
-        transition: all 0.2s ease-in-out;
-        margin-right: 1.25rem;
-        &:hover {
-          color: #ddd;
-        }
-        a,
-        button {
-          font-size: 0.95rem;
-        }
-      }
-    }
-  }
-`;
 
 export default Header;

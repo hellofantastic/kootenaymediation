@@ -2,24 +2,29 @@
 
 import React from "react";
 //import styled from "styled-components";
+
 import styled from "@emotion/styled";
 
 interface ButtonProps {
   name: string;
   icon?: React.ReactNode;
   color?: string;
+  backgroundcolor?: string;
   border?: string;
   disabled?: boolean;
+  css?: Object;
 }
 
-function Button({ name, icon, color, border, disabled }: ButtonProps) {
+function Button({ name, icon, color, backgroundcolor, border, disabled, css }: ButtonProps) {
   return (
     <ButtonStyled
       style={{
         color: color,
         border: border,
+        ...css,
       }}
       disabled={disabled === true ? true : false}
+      backgroundcolor={backgroundcolor}
     >
       {icon && icon}
 
@@ -27,8 +32,10 @@ function Button({ name, icon, color, border, disabled }: ButtonProps) {
     </ButtonStyled>
   );
 }
-
-const ButtonStyled = styled.button`
+type TButtonStyledProps = {
+  backgroundcolor?: string;
+};
+const ButtonStyled = styled.button<TButtonStyledProps>`
   padding: 0.6rem 1.25rem;
   border-radius: 50px;
   border: none;
@@ -38,7 +45,7 @@ const ButtonStyled = styled.button`
   align-items: center;
   gap: 1rem;
   color: white;
-  background: var(--color-button-bg);
+  background: ${({ backgroundcolor }) => (backgroundcolor ? "#" + backgroundcolor : `var(--color-button-bg)`)};
   font-size: 0.95rem;
   &:disabled {
     background-color: #ddd !important;

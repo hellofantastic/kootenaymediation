@@ -1,8 +1,8 @@
 :root {
-  --max-width: 1100px;
+  --max-width: 1200px;
   --border-radius: 12px;
 
-  --foreground-rgb: 80, 80, 80;
+  --body-text-rgb: rgb(125, 160, 180);
   /*--background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
@@ -37,7 +37,7 @@
   --card-border-rgb: 131, 134, 135;
 
   --color-border: #eee;
-  --color-button-bg: #79b4b7; /* #f1af7c;*/
+  --color-button-bg: #fff; /* #79b4b7 #f1af7c;*/
   --color-button-hover: #8cced2; /* #fcbc90;*/
 }
 
@@ -57,11 +57,6 @@ body {
 html {
   scroll-behavior: smooth !important;
 }
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  font-weight: 300;
-}
 
 a {
   color: inherit;
@@ -76,17 +71,7 @@ button {
 p {
   margin-bottom: 1rem;
 }
-/* Colors */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #878579; /* #548285*/
-  line-height: 1;
-  margin-bottom: 1rem;
-}
+
 h2,
 h3,
 h4,
@@ -94,9 +79,7 @@ h5,
 h6 {
   margin-top: 2rem;
 }
-.footer a {
-  color: #79b4b7; /* #f0b07c;*/
-}
+
 .privacy ul,
 .privacy ol {
   margin-bottom: 2rem;

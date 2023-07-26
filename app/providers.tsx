@@ -11,6 +11,14 @@ const poppins = Poppins({
 });
 
 const theme = extendTheme({
+  styles: {
+    global: () => ({
+      body: {
+        bg: { base: "", md: "url('/images/page-background.png')" },
+        backgroundSize: "contain",
+      },
+    }),
+  },
   fonts: {
     heading: poppins.style.fontFamily,
     body: poppins.style.fontFamily,

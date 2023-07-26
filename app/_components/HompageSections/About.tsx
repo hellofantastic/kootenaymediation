@@ -8,8 +8,8 @@ export const About = () => {
     <BackgroundContainer backgroundColor="#EAF2EF">
       <InnerWidthContainer width="640px" id="about-judah">
         <Grid templateColumns={{ base: "1fr" }} gap={6}>
-          <GridItem>
-            <Heading size="lg">About</Heading>
+          <GridItem display={"flex"} flexDir="column" justifyContent="center">
+            <Heading size="xl">About</Heading>
             <Heading as="h3" size="md">
               Kootenay Mediation is Judah Harrison
             </Heading>

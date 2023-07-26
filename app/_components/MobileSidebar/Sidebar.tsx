@@ -10,7 +10,7 @@ const links = [
   { name: "Collaborative Law", to: "#collaborative-law", id: 2 },
   { name: "About", to: "#about", id: 3 },
   { name: "Process", to: "#process", id: 4 },
-  { name: "Book and Appointment", to: "#consultation", id: 5 },
+  { name: "Book and Appointment", class: "appointment-button", to: "#consultation", id: 5 },
 ];
 
 interface SidebarProps {
@@ -36,7 +36,7 @@ export const Sidebar = ({ open = false, setOpen = () => {} }: SidebarProps) => {
               <MobileNav>
                 {links.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.to} scroll={false} onClick={() => setOpen(false)}>
+                    <Link href={link.to} scroll={false} onClick={() => setOpen(false)} className={link.class ? link.class : ""}>
                       {link.name}
                     </Link>
                   </li>
@@ -84,14 +84,38 @@ const MobileNavContainer = styled.div`
 const MobileNav = styled.ul`
   list-style: none;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   li {
     text-align: center;
+    margin-bottom: 2rem;
     a {
       transition: all 0.2s ease-in-out;
       color: #486f70;
       &:hover {
         color: #8cced2;
+      }
+    }
+    a.appointment-button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: white;
+      background: #f0ac77;
+      &:hover {
+        background-color: var(--color-button-hover);
+        color: white;
       }
     }
   }

@@ -1,7 +1,7 @@
 "use client";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Text, Box } from "@chakra-ui/react";
 import { Ring } from "@uiball/loaders";
 
 //App
@@ -56,28 +56,30 @@ export const ContactForm = () => {
   return (
     <BackgroundContainer borderTop>
       <InnerWidthContainer width="640px" id="consultation">
-        <Heading>Book a Consultation</Heading>
-        <Text>Please provide the following information. </Text>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <InputField label={"First Name *"} name="firstName" errors={errors} register={register} required />
-          <InputField label={"Last Name *"} name="lastName" errors={errors} register={register} required />
-          <InputField label={"Email *"} name="email" errors={errors} register={register} required />
-          <InputField label={"Phone"} name="phone" errors={errors} register={register} />
-          <MessageBox label={"Message *"} name="message" errors={errors} register={register} required />
-          <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
-            <GridItem>
-              <Button name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
-            </GridItem>
-            <GridItem display="flex" alignItems="center">
-              {isSubmitting === true ? (
-                <>
-                  <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />
-                </>
-              ) : null}
-              {submitSuccess ? SuccessMessageSend : null}
-            </GridItem>
-          </Grid>
-        </form>
+        <Box display={"flex"} flexDir="column" justifyContent="center">
+          <Heading size="xl">Book a Consultation</Heading>
+          <Text fontSize={["md", "lg"]}>Please provide the following information. </Text>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <InputField label={"First Name *"} name="firstName" errors={errors} register={register} required />
+            <InputField label={"Last Name *"} name="lastName" errors={errors} register={register} required />
+            <InputField label={"Email *"} name="email" errors={errors} register={register} required />
+            <InputField label={"Phone"} name="phone" errors={errors} register={register} />
+            <MessageBox label={"Message *"} name="message" errors={errors} register={register} required />
+            <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
+              <GridItem>
+                <Button name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
+              </GridItem>
+              <GridItem display="flex" alignItems="center">
+                {isSubmitting === true ? (
+                  <>
+                    <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />
+                  </>
+                ) : null}
+                {submitSuccess ? SuccessMessageSend : null}
+              </GridItem>
+            </Grid>
+          </form>
+        </Box>
       </InnerWidthContainer>
     </BackgroundContainer>
   );
@@ -96,6 +98,7 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
       >
         <Text
           as="label"
+          fontSize={["md", "lg"]}
           style={{
             display: "flex",
             marginBottom: "6px",
@@ -138,6 +141,7 @@ const MessageBox = ({ label, name, register, errors, required }: InputFieldProps
       >
         <Text
           as="label"
+          fontSize={["md", "lg"]}
           style={{
             display: "flex",
             marginBottom: "6px",

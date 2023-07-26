@@ -36,6 +36,7 @@ type TButtonStyledProps = {
   backgroundcolor?: string;
 };
 const ButtonStyled = styled.button<TButtonStyledProps>`
+  margin-top: 1rem;
   padding: 0.6rem 1.25rem;
   border-radius: 50px;
   border: none;
@@ -46,7 +47,7 @@ const ButtonStyled = styled.button<TButtonStyledProps>`
   gap: 1rem;
   color: white;
   background: ${({ backgroundcolor }) => (backgroundcolor ? "#" + backgroundcolor : `var(--color-button-bg)`)};
-  font-size: 1rem;
+  font-size: 1.2rem;
   &:disabled {
     background-color: #ddd !important;
     color: #eee !important;

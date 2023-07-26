@@ -11,9 +11,7 @@ export const Footer = () => {
       <Box className="footer" sx={{ a: { color: "#497173" } }} maxW={1200} m="auto" p="4rem 2rem 1rem 2rem">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
           <GridItem>
-            <Text color={"#497173"}>
-              <Text>©{year} Kootenay Mediation</Text>
-            </Text>
+            <Link href="/">©{year} Kootenay Mediation</Link>
           </GridItem>
           <GridItem display="flex" justifyContent="right">
             <Link href="/privacy-policy">Privacy Policy</Link>

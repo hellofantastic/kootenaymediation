@@ -55,7 +55,7 @@ export const ContactForm = () => {
 
   return (
     <BackgroundContainer borderTop>
-      <InnerWidthContainer width="640px" id="Consultation">
+      <InnerWidthContainer width="640px" id="consultation">
         <Heading>Book a Consultation</Heading>
         <Text>Please provide the following information. </Text>
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -7,10 +7,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const links = [
   { name: "Mediation", to: "#mediation", id: 1 },
-  { name: "Collaborative Law", to: "#collaborative", id: 2 },
+  { name: "Collaborative Law", to: "#collaborative-law", id: 2 },
   { name: "About", to: "#about", id: 3 },
   { name: "Process", to: "#process", id: 4 },
-  { name: "Book and Appointment", to: "#book-appointment", id: 5 },
+  { name: "Book and Appointment", to: "#consultation", id: 5 },
 ];
 
 interface SidebarProps {

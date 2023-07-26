@@ -19,6 +19,13 @@ export const HeaderStyled = styled.header`
       align-items: center;
       gap: 1rem;
       cursor: pointer;
+      max-width: 130px;
+      @media only screen and (min-width: 768px) {
+        max-width: 175px;
+      }
+      @media only screen and (min-width: 1024px) {
+        max-width: 200px;
+      }
     }
 
     .nav-items {

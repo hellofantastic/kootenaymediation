@@ -17,7 +17,15 @@ function Header() {
       <nav>
         <div className="logo">
           <Link href="/">
-            <Image src="/images/kootenay-mediation-logo.svg" alt="Kootenay Mediation Logo" width={200} height={72} priority />
+            <Image
+              src="/images/kootenay-mediation-logo.svg"
+              alt="Kootenay Mediation Logo"
+              width="0"
+              height="0"
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              priority
+            />
           </Link>
         </div>
         <Show breakpoint="(min-width: 1024px)">

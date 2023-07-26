@@ -3,7 +3,7 @@ import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { BackgroundContainer } from "../Container/BackgroundContainer";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
 
-export const SectionFive = () => {
+export const About = () => {
   return (
     <BackgroundContainer backgroundColor="#EAF2EF">
       <InnerWidthContainer width="640px" id="about-judah">

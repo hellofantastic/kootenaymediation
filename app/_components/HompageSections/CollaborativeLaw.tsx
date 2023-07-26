@@ -4,17 +4,17 @@ import { Grid, GridItem, Box, Heading, Text } from "@chakra-ui/react";
 import { BackgroundContainer } from "../Container/BackgroundContainer";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
 
-export const SectionThree = () => {
+export const CollaborativeLaw = () => {
   return (
-    <BackgroundContainer style={{ borderTop: "1px solid #EAF2EF" }}>
+    <BackgroundContainer borderTop>
       <InnerWidthContainer id="collaborative-law">
         <Grid templateColumns={{ base: "1fr" }} gap={6}>
           <GridItem display="flex" w="100%" justifyContent="center">
-            <Box display="flex" flexDirection="column" justifyContent="center" maxW={450}>
-              <Heading size="lg" display="flex" justifyContent={"center"}>
+            <Box display="flex" flexDirection="column" justifyContent="center" maxW={640}>
+              <Heading size="lg" display="flex" justifyContent={"left"}>
                 Collaborative Law{" "}
               </Heading>
-              <Text fontSize={["sm", "md", "lg"]} textAlign="center">
+              <Text fontSize={["sm", "md", "lg"]}>
                 Collaborative Law is another effective approach to resolving disputes outside of court, particularly in more complex situations. This
                 process involves the involvement of two lawyers who, with combined experience, work together to find mutually agreeable solutions.
                 Collaborative law provides a structured and supportive environment for parties to address their concerns and reach a resolution that

@@ -8,5 +8,5 @@ interface ContainerProps {
 export const InnerWidthContainer = styled.div<ContainerProps>`
   max-width: ${(props) => (props.width ? props.width : "1200px")};
   margin: 0 auto;
-  padding: 7rem 2rem;
+  padding: 5rem 2rem 7rem;
 `;

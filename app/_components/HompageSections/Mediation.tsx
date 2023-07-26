@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
 
-export const SectionTwo = () => {
+export const Mediation = () => {
   return (
     <BackgroundWrapper>
       <InnerWidthContainer id="mediation">
@@ -20,14 +20,18 @@ export const SectionTwo = () => {
             />
           </GridItem>
           <GridItem>
-            <Heading size="lg">Mediation over Court</Heading>
-
+            <Heading pt={{ base: "4rem", lg: "0" }} size="lg">
+              Mediation over Court
+            </Heading>
             <Text fontSize={["sm", "md", "lg"]}>
               Mediation offers a valuable opportunity for individuals to take control of resolving their issues on their own terms. By engaging in
               mediation, involved parties can potentially save time, money, and emotional distress. In many cases, it is beneficial for separating
               individuals to find their own solutions and direct whatever resources they have towards their children's well-being or their own
-              financial stability, rather than fighting in court. Mediators can offer parties legal information, provide suggestions and alternatives,
-              and formalize agreements. Mediation may not be suitable in all situations, particularly where there is family violence.
+              financial stability, rather than fighting in court.
+            </Text>{" "}
+            <Text fontSize={["sm", "md", "lg"]}>
+              Mediators can offer parties legal information, provide suggestions and alternatives, and formalize agreements. Mediation may not be
+              suitable in all situations, particularly where there is family violence.
             </Text>
           </GridItem>
         </Grid>

@@ -71,7 +71,8 @@ const MotionContentContainer = styled(motion.div)`
   height: 100vh;
   padding: 1.5rem;
   z-index: 998;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 `;
 const MobileNavContainer = styled.div`
   display: flex;
@@ -86,6 +87,13 @@ const MobileNav = styled.ul`
   font-size: 1.4rem;
   li {
     text-align: center;
+    a {
+      transition: all 0.2s ease-in-out;
+      color: #486f70;
+      &:hover {
+        color: #8cced2;
+      }
+    }
   }
 `;
 

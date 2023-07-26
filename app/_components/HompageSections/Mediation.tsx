@@ -2,8 +2,11 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
-import { InnerWidthContainer } from "../Container/InnerWidthContainer";
 
+//App
+import { InnerWidthContainer } from "../Container/InnerWidthContainer";
+import { FadeInWhenVisible } from "../_animations/FadeInWhenVisible";
+import { childAnimationVariants } from "../_animations/childAnimationVariants";
 export const Mediation = () => {
   return (
     <BackgroundWrapper>

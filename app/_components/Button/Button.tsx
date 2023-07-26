@@ -46,7 +46,7 @@ const ButtonStyled = styled.button<TButtonStyledProps>`
   gap: 1rem;
   color: white;
   background: ${({ backgroundcolor }) => (backgroundcolor ? "#" + backgroundcolor : `var(--color-button-bg)`)};
-  font-size: 0.95rem;
+  font-size: 1rem;
   &:disabled {
     background-color: #ddd !important;
     color: #eee !important;

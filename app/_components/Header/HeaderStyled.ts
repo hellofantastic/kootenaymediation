@@ -26,7 +26,7 @@ export const HeaderStyled = styled.header`
       align-items: center;
 
       list-style: none;
-      color: #3d5664 /*#548285*/;
+      color: #486f70 /*#548285*/;
       li:last-child {
         margin-left: 2rem;
       }
@@ -34,7 +34,7 @@ export const HeaderStyled = styled.header`
         transition: all 0.2s ease-in-out;
         margin-right: 1.25rem;
         &:hover {
-          color: #ddd;
+          color: #8cced2;
         }
         a,
         button {

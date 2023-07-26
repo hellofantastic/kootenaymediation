@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import { Grid, GridItem, Box, Heading, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+//App
 import { BackgroundContainer } from "../Container/BackgroundContainer";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
+import { FadeInWhenVisible } from "../_animations/FadeInWhenVisible";
 
 export const CollaborativeLaw = () => {
   return (

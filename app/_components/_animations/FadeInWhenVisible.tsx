@@ -33,7 +33,7 @@ const childAnimationVariants = {
 
 export const FadeInWhenVisible = ({ children }: FadeInProps) => {
   const arrayChildren = Children.toArray(children);
-  console.log("Children", children);
+
   return (
     <motion.div variants={parentVariants} key="parent" initial="hidden" whileInView="visible">
       {Children.map(arrayChildren, (child, index) => {

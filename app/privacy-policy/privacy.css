@@ -5,3 +5,12 @@
 .privacy h2 {
   margin-top: 2rem;
 }
+
+.privacy ul,
+.privacy ol {
+  margin-bottom: 2rem;
+}
+.privacy ul li,
+.privacy ol li {
+  margin-left: 2rem;
+}

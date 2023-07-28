@@ -18,6 +18,6 @@ label {
 }
 
 input::placeholder {
-  color: var(--color-border);
+  color: #41595a;
   font-weight: 500;
 }

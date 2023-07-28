@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Grid, GridItem, Heading, Text, Box } from "@chakra-ui/react";
@@ -56,15 +57,33 @@ export const ContactForm = () => {
   return (
     <BackgroundContainer borderTop>
       <InnerWidthContainer width="640px" id="consultation">
+        <Image
+          src="/images/couple_sitting_1.png"
+          alt="Image of couple sitting"
+          width="0"
+          height="0"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            maxWidth: "640px",
+            height: "auto",
+            margin: "0 auto",
+            display: "flex",
+            marginTop: "2rem",
+            marginBottom: "2rem",
+          }}
+        />
         <Box display={"flex"} flexDir="column" justifyContent="center">
           <Heading size="xl">Book a Consultation</Heading>
-          <Text fontSize={["md", "lg"]}>Please provide the following information. </Text>
+          <Text fontSize={["md", "lg"]} pb="1.5rem">
+            Please provide the following information.{" "}
+          </Text>
           <form onSubmit={handleSubmit(onSubmit)}>
             <InputField label={"First Name *"} name="firstName" errors={errors} register={register} required />
             <InputField label={"Last Name *"} name="lastName" errors={errors} register={register} required />
             <InputField label={"Email *"} name="email" errors={errors} register={register} required />
             <InputField label={"Phone"} name="phone" errors={errors} register={register} />
-            <MessageBox label={"Message *"} name="message" errors={errors} register={register} required />
+            <MessageBox label={"Describe your circumstances *"} name="message" errors={errors} register={register} required />
             <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
               <GridItem>
                 <Button name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
@@ -98,6 +117,7 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
       >
         <Text
           as="label"
+          htmlFor={name}
           fontSize={["md", "lg"]}
           style={{
             display: "flex",
@@ -116,6 +136,7 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
           ) : null}
         </Text>
         <input
+          id={name}
           {...(name === "email"
             ? {
                 ...register(name, {
@@ -141,6 +162,7 @@ const MessageBox = ({ label, name, register, errors, required }: InputFieldProps
       >
         <Text
           as="label"
+          htmlFor={name}
           fontSize={["md", "lg"]}
           style={{
             display: "flex",
@@ -154,7 +176,12 @@ const MessageBox = ({ label, name, register, errors, required }: InputFieldProps
             </span>
           ) : null}
         </Text>
-        <textarea rows={8} {...register(name, { required: true })} />
+        <textarea
+          id={name}
+          placeholder={"Provide as much information as you feel comfortable with to give me an idea of your situation or circumstances."}
+          rows={8}
+          {...register(name, { required: true })}
+        />
       </div>
     </Fragment>
   );

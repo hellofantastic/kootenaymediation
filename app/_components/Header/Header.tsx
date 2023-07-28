@@ -9,7 +9,8 @@ import styled from "@emotion/styled";
 import { Sidebar } from "../MobileSidebar/Sidebar";
 import Burger from "../MobileSidebar/Burger";
 import { HeaderStyled } from "./HeaderStyled";
-function Header() {
+
+export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -61,6 +62,4 @@ function Header() {
       </nav>
     </HeaderStyled>
   );
-}
-
-export default Header;
+};

@@ -19,7 +19,9 @@ export const CollaborativeLaw = () => {
               </Heading>
               <Text fontSize={["md", "lg"]}>
                 Collaborative Law is another effective approach to resolving disputes outside of court, particularly in more complex situations. This
-                process involves the involvement of two lawyers who, with combined experience, work together to find mutually agreeable solutions.
+                process involves the collaboration of two lawyers who, with combined experience, work together to find mutually agreeable solutions.
+              </Text>
+              <Text fontSize={["md", "lg"]}>
                 Collaborative law provides a structured and supportive environment for parties to address their concerns and reach a resolution that
                 meets their unique needs.
               </Text>

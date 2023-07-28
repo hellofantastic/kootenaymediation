@@ -10,7 +10,7 @@ const links = [
   { name: "Collaborative Law", to: "#collaborative-law", id: 2 },
   { name: "About", to: "#about", id: 3 },
   { name: "Process", to: "#process", id: 4 },
-  { name: "Book and Appointment", class: "appointment-button", to: "#consultation", id: 5 },
+  { name: "Book a Consultation", class: "appointment-button", to: "#consultation", id: 5 },
 ];
 
 interface SidebarProps {

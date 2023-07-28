@@ -15,7 +15,9 @@ const theme = extendTheme({
     global: () => ({
       body: {
         bg: { base: "", md: "url('/images/page-background.png')" },
-        backgroundSize: "contain",
+        backgroundSize: { base: "", md: "contain" },
+        backgroundPosition: { baes: null, md: "bottom" },
+        color: "#33494a",
       },
     }),
   },

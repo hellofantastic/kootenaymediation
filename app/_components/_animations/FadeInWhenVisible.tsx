@@ -1,25 +1,22 @@
-import { Children, cloneElement } from "react";
+import { Children, RefObject, ReactNode } from "react";
 import { motion } from "framer-motion";
 
 interface FadeInProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  scrollRef?: RefObject<HTMLElement>;
 }
 const parentVariants = {
   visible: {
     opacity: 1,
-    y: 0,
-
     transition: {
-      ease: "easeInOut",
-      type: "tween",
-      duration: 0.3,
-      when: "beforeChildren",
-      staggerChildren: 0.3,
+      ease: "linear",
+      duration: 0.8,
+
+      staggerChildren: 0.5,
     },
   },
   hidden: {
     opacity: 0,
-    y: 30,
     transition: {
       staggerChildren: 0.3,
     },
@@ -27,15 +24,15 @@ const parentVariants = {
 };
 
 const childAnimationVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
-export const FadeInWhenVisible = ({ children }: FadeInProps) => {
+export const FadeInWhenVisible = ({ children, scrollRef }: FadeInProps) => {
   const arrayChildren = Children.toArray(children);
 
   return (
-    <motion.div variants={parentVariants} key="parent" initial="hidden" whileInView="visible">
+    <motion.div variants={parentVariants} key="parent" initial="hidden" whileInView="visible" viewport={{ once: true, amount: "some" }}>
       {Children.map(arrayChildren, (child, index) => {
         return (
           <motion.div key={index} variants={childAnimationVariants}>

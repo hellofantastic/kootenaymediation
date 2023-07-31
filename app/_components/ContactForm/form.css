@@ -17,7 +17,9 @@ label {
   display: block;
 }
 
-input::placeholder {
-  color: #41595a;
-  font-weight: 500;
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-weight: normal;
+  font-size: 0.9rem;
 }

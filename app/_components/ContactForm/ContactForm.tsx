@@ -83,7 +83,7 @@ export const ContactForm = () => {
             <InputField label={"Last Name *"} name="lastName" errors={errors} register={register} required />
             <InputField label={"Email *"} name="email" errors={errors} register={register} required />
             <InputField label={"Phone"} name="phone" errors={errors} register={register} />
-            <MessageBox label={"Describe your circumstances *"} name="message" errors={errors} register={register} required />
+            <MessageBox label={"What can I help you with? *"} name="message" errors={errors} register={register} required />
             <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
               <GridItem>
                 <Button name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
@@ -109,47 +109,40 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
-    <Fragment>
-      <div
+    <Box display={"flex"} flexDir="column" mb={4}>
+      <Text
+        as="label"
+        htmlFor={name}
+        fontSize={["md", "lg"]}
         style={{
-          marginBottom: "15px",
+          marginBottom: "6px",
         }}
       >
-        <Text
-          as="label"
-          htmlFor={name}
-          fontSize={["md", "lg"]}
-          style={{
-            display: "flex",
-            marginBottom: "6px",
-          }}
-        >
-          {label}
-          {errors !== undefined && errors[name] ? (
-            <span style={{ marginLeft: "auto", fontSize: "1rem", color: "rgb(255 0 0)" }}>
-              {errors !== undefined && errors[name]?.type === "required"
-                ? " * required"
-                : errors !== undefined && errors[name]?.type === "properEmail"
-                ? " * Need a properly formed email"
-                : null}
-            </span>
-          ) : null}
-        </Text>
-        <input
-          id={name}
-          {...(name === "email"
-            ? {
-                ...register(name, {
-                  required: true,
-                  validate: {
-                    properEmail: (v: string) => emailStructure.test(v),
-                  },
-                }),
-              }
-            : { ...register(name, { required: required ? true : false }) })}
-        />
-      </div>
-    </Fragment>
+        {label}
+        {errors !== undefined && errors[name] ? (
+          <span style={{ marginLeft: "auto", fontSize: "1rem", color: "rgb(255 0 0)" }}>
+            {errors !== undefined && errors[name]?.type === "required"
+              ? " * required"
+              : errors !== undefined && errors[name]?.type === "properEmail"
+              ? " * Need a properly formed email"
+              : null}
+          </span>
+        ) : null}
+      </Text>
+      <input
+        id={name}
+        {...(name === "email"
+          ? {
+              ...register(name, {
+                required: true,
+                validate: {
+                  properEmail: (v: string) => emailStructure.test(v),
+                },
+              }),
+            }
+          : { ...register(name, { required: required ? true : false }) })}
+      />
+    </Box>
   );
 };
 const MessageBox = ({ label, name, register, errors, required }: InputFieldProps) => {
@@ -176,12 +169,7 @@ const MessageBox = ({ label, name, register, errors, required }: InputFieldProps
             </span>
           ) : null}
         </Text>
-        <textarea
-          id={name}
-          placeholder={"Provide as much information as you feel comfortable with to give me an idea of your situation or circumstances."}
-          rows={8}
-          {...register(name, { required: true })}
-        />
+        <textarea id={name} placeholder={""} rows={8} {...register(name, { required: true })} />
       </div>
     </Fragment>
   );

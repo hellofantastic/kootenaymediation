@@ -1,9 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Show, Grid, GridItem } from "@chakra-ui/react";
+import { Show, Hide } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "@emotion/styled";
 
 //App
 import { Sidebar } from "../MobileSidebar/Sidebar";
@@ -29,7 +28,7 @@ export const Header = () => {
             />
           </Link>
         </div>
-        <Show breakpoint="(min-width: 1024px)">
+        <Hide below="lg">
           <ul className="nav-items">
             <li>
               <Link href="#mediation" scroll={false}>
@@ -52,8 +51,8 @@ export const Header = () => {
               </a>
             </li>
           </ul>
-        </Show>
-        <Show breakpoint="(max-width: 1024px)">
+        </Hide>
+        <Show below="lg">
           <div>
             <Burger open={open} setOpen={setOpen} />
             <Sidebar open={open} setOpen={setOpen} />

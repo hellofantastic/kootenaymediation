@@ -1,5 +1,7 @@
 "use client";
-import { Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Fade, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+
+//App
 import { BackgroundOliveLeafContainer } from "../Container/BackgroundOliveLeafContainer";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
 
@@ -15,32 +17,32 @@ export const Process = () => {
             </Heading>
             <Text fontSize={["md", "lg"]}>Use our contact form below or phone to express your interest in mediation services.</Text>
             <Heading as="h3" size="md">
-              Free Consultation:{" "}
+              Initial Consultation:{" "}
             </Heading>
             <Text fontSize={["md", "lg"]}>
               We offer a free consultation to assess whether mediation is suitable for your situation. This consultation typically lasts 15-20
               minutes. During this time, we will discuss your needs and determine if mediation is the right approach.
             </Text>
             <Heading as="h3" size="md">
-              Retainer:{" "}
+              Pre-Mediation Interview
             </Heading>
             <Text fontSize={["md", "lg"]}>
-              If mediation is deemed appropriate, a retainer fee of $$$ will be required. This fee covers the initial meeting where all parties will
-              have an opportunity to share their perspectives and goals for the mediation process.
+              If mediation is deemed appropriate, a pre-medaition interview is scheduled where all parties will have an opportunity to share their
+              perspectives and goals for the mediation process. These meetings typically run 1-2 hours.
             </Text>
             <Heading as="h3" size="md">
               Mediation Session:{" "}
             </Heading>
             <Text fontSize={["md", "lg"]}>
-              Once all parties have agreed to proceed, a mediation session will be scheduled. The rate for mediation is $$$ per hour. The duration of
-              the session will vary depending on the complexity of the issues involved, typically lasting from 2 to ? hours.
+              Once all parties have agreed to proceed, a mediation session will be scheduled. The duration of the session will vary depending on the
+              complexity of the issues involved, typically lasting from 2 to 5 hours.
             </Text>
             <Heading as="h3" size="md">
               Payment Arrangements:{" "}
             </Heading>
             <Text fontSize={["md", "lg"]}>
               We advise that all participants split the cost of mediation equally unless someone has kindly offered to cover the expenses. This
-              ensures a fair distribution of financial responsibility among the parties involved.
+              ensures a fair distribution of financial responsibility among the parties involved. The rate for mediation is generally $300 per hour.
             </Text>
             <Text fontSize={["md", "lg"]}>
               Please note that the specific details of the mediation process may vary based on individual circumstances. Our aim is to facilitate an

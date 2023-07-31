@@ -16,20 +16,17 @@ export const CollaborativeLaw = () => {
         <Grid templateColumns={{ base: "1fr" }} gap={6}>
           <GridItem display={"flex"} flexDir="column" justifyContent="center">
             <Box maxW={680} css={{ margin: "0 auto" }}>
-              <FadeInWhenVisible>
-                <Heading size="xl" display="flex" justifyContent={"left"}>
-                  Collaborative Law{" "}
-                </Heading>
-                <Text fontSize={["md", "lg"]}>
-                  Collaborative Law is another effective approach to resolving disputes outside of court, particularly in more complex situations.
-                  This process involves the collaboration of two lawyers who, with combined experience, work together to find mutually agreeable
-                  solutions.
-                </Text>
-                <Text fontSize={["md", "lg"]}>
-                  Collaborative law provides a structured and supportive environment for parties to address their concerns and reach a resolution that
-                  meets their unique needs.
-                </Text>
-              </FadeInWhenVisible>
+              <Heading size="xl" display="flex" justifyContent={"left"}>
+                Collaborative Law{" "}
+              </Heading>
+              <Text fontSize={["md", "lg"]}>
+                Collaborative Law is another effective approach to resolving disputes outside of court, particularly in more complex situations. This
+                process involves the collaboration of two lawyers who, with combined experience, work together to find mutually agreeable solutions.
+              </Text>
+              <Text fontSize={["md", "lg"]}>
+                Collaborative law provides a structured and supportive environment for parties to address their concerns and reach a resolution that
+                meets their unique needs.
+              </Text>
             </Box>
           </GridItem>
 

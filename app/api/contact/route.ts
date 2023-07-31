@@ -21,8 +21,29 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  const messageFromWebForm = "Request for Consultation from: \n\n" + "Name: " + firstName + " " + lastName + "\n" + "Email: " + email + "\n" + "Phone: " + phone + "\n\n" + "Message: \n" + message + "\n";
-  const autoResponseToUser = "Hello " + firstName + ",\n\n" + "Your request for consultation has been received by Kootenay Mediation." + "\n I will be responding to you shortly. \n\n" + "JH \n Kootenay Mediation \nBarrister & Solicitor";
+  const messageFromWebForm =
+    "Request for Consultation from: \n\n" +
+    "Name: " +
+    firstName +
+    " " +
+    lastName +
+    "\n" +
+    "Email: " +
+    email +
+    "\n" +
+    "Phone: " +
+    phone +
+    "\n\n" +
+    "Message: \n" +
+    message +
+    "\n";
+  const autoResponseToUser =
+    "Hello " +
+    firstName +
+    ",\n\n" +
+    "Your request for consultation has been received by Kootenay Mediation." +
+    "\n I will be responding to you shortly. \n\n" +
+    "Judah Harrison \nKootenay Mediation \nBarrister & Solicitor";
 
   //Message to Kootany Mediation
   try {

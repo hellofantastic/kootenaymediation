@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const links = [
   { name: "Mediation", to: "#mediation", id: 1 },
   { name: "Collaborative Law", to: "#collaborative-law", id: 2 },
-  { name: "About", to: "#about", id: 3 },
+  { name: "About", to: "#about-judah", id: 3 },
   { name: "Process", to: "#process", id: 4 },
   { name: "Book a Consultation", class: "appointment-button", to: "#consultation", id: 5 },
 ];

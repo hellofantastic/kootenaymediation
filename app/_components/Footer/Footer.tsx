@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { Grid, GridItem, Box, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Box } from "@chakra-ui/react";
 
 export const Footer = () => {
   const d = new Date();
   let year = d.getFullYear();
   return (
-    <BackgroundImageContainer>
+    <BackgroundImageContainer role="footer">
       <Box className="footer" sx={{ a: { color: "#497173" } }} maxW={1200} m="auto" p="4rem 2rem 1rem 2rem">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
           <GridItem display="flex">
@@ -22,7 +22,7 @@ export const Footer = () => {
   );
 };
 
-const BackgroundImageContainer = styled.div`
+const BackgroundImageContainer = styled.footer`
   width: 100%;
   background: url("/images/footer-bg_1.png");
   background-repeat: no-repeat;

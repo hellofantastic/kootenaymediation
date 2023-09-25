@@ -15,10 +15,10 @@ export const About = () => {
               Barrister & Solicitor
             </Heading>
             <Text fontSize={["md", "lg"]}>
-              As a family lawyer with 15 years experience, I am dedicated to assisting individuals and families in navigating legal issues pertaining
-              to family breakdowns. Legal issues that must often be resolved include parenting plans, child and spousal support, and dividing assets
-              and debt. On many occasions, I have seen the benefit of people resolving their legal issues on their own terms; collaboratively and
-              outside of court.
+              As a family lawyer with nearly 15 years experience, I am dedicated to assisting individuals and families in navigating legal issues,
+              particularly those pertaining to family breakdowns. Legal issues that must often be resolved include parenting plans, child and spousal
+              support, and dividing assets and debts. On many occasions, I have seen the benefit of people resolving their legal issues on their own
+              terms; collaboratively and through mediation, rather than through court.
             </Text>
           </GridItem>
         </Grid>

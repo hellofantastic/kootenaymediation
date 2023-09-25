@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Grid, GridItem, Heading, Text, Box } from "@chakra-ui/react";
-import { Ring } from "@uiball/loaders";
+import { Grid, GridItem, Heading, Text, Box, Link } from "@chakra-ui/react";
+//import { Ring } from "@uiball/loaders";
 
 //App
 import { BackgroundContainer } from "../Container/BackgroundContainer";
@@ -76,7 +76,12 @@ export const ContactForm = () => {
         <Box display={"flex"} flexDir="column" justifyContent="center">
           <Heading size="xl">Book a Consultation</Heading>
           <Text fontSize={["md", "lg"]} pb="1.5rem">
-            Please provide the following information.{" "}
+            Please provide the following information to contact by email. <br />
+            You may also call at{" "}
+            <Link color="#f0ac77" href={"tel:+12507772369"}>
+              250-777-2369
+            </Link>
+            , if you prefer.
           </Text>
           <form onSubmit={handleSubmit(onSubmit)}>
             <InputField label={"First Name *"} name="firstName" errors={errors} register={register} required />
@@ -91,7 +96,7 @@ export const ContactForm = () => {
               <GridItem display="flex" alignItems="center">
                 {isSubmitting === true ? (
                   <>
-                    <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span> <Ring color="#79b4b7" />
+                    <span style={{ marginRight: "10px", fontStyle: "italic" }}>{"Sending "}</span>
                   </>
                 ) : null}
                 {submitSuccess ? SuccessMessageSend : null}

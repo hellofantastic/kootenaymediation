@@ -14,7 +14,7 @@ export const Header = () => {
 
   return (
     <HeaderStyled>
-      <nav>
+      <nav role="navigation" aria-label="Main">
         <div className="logo">
           <Link href="/">
             <Image

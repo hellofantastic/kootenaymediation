@@ -6,7 +6,6 @@ import { Grid, GridItem, Box, Heading, Text } from "@chakra-ui/react";
 //App
 import { BackgroundContainer } from "../Container/BackgroundContainer";
 import { InnerWidthContainer } from "../Container/InnerWidthContainer";
-import { FadeInWhenVisible } from "../_animations/FadeInWhenVisible";
 
 export const CollaborativeLaw = () => {
   const scrollRef = useRef(null);
@@ -21,7 +20,8 @@ export const CollaborativeLaw = () => {
               </Heading>
               <Text fontSize={["md", "lg"]}>
                 Collaborative Law is another effective approach to resolving disputes outside of court, particularly in more complex situations. This
-                process involves the collaboration of two lawyers who, with combined experience, work together to find mutually agreeable solutions.
+                process involves the collaboration of two lawyers who, with combined experience, work together to find mutually agreeable outcomes. In
+                many cases, other experts are involved including counselors and financial experts.
               </Text>
               <Text fontSize={["md", "lg"]}>
                 Collaborative law provides a structured and supportive environment for parties to address their concerns and reach a resolution that

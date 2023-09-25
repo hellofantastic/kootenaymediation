@@ -18,9 +18,9 @@ export const Hero = () => {
             </Heading>
 
             <Text fontSize={["md", "lg"]}>
-              Gain expert guidance during difficult moments in life through mediation. At Kootenay Mediation you will find a secure environment to
-              express yourself, whether individually or as a group, to cross that bridge to a just resolution. By avoiding court, you will save
-              valuable time and finances.
+              Gain expert guidance navigating legal disputes through mediation. At Kootenay Mediation you will find a secure environment to express
+              yourself, whether individually or as a group, and access experienced assistance in reaching just resolutions on all types of legal
+              disputes, particularly family law matters. By avoiding court, you will save valuable time and finances.
             </Text>
 
             <Link

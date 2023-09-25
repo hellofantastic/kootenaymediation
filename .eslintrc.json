@@ -1,4 +1,6 @@
 {
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+
   "extends": "next/core-web-vitals",
   "env": {
     "jest": true

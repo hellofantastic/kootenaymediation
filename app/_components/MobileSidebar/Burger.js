@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import styled from "@emotion/styled";
 
 const Burger = ({ open, setOpen, ...props }) => {

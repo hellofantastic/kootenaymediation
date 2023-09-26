@@ -1,8 +1,15 @@
 "use client";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "@emotion/styled";
 
-const Burger = ({ open, setOpen, ...props }) => {
+interface BurgerProps {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+type StyledBurgerProps = {
+  open: boolean;
+};
+const Burger = ({ open, setOpen = () => {}, ...props }: BurgerProps) => {
   const isExpanded = open ? true : false;
 
   return (
@@ -14,7 +21,7 @@ const Burger = ({ open, setOpen, ...props }) => {
 };
 export default Burger;
 
-const StyledBurger = styled.button`
+const StyledBurger = styled.button<StyledBurgerProps>`
   font-size: 32px;
   color: #fff;
   margin-left: auto;

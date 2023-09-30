@@ -4,7 +4,7 @@ import { Footer } from "./_components/Footer/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kootenay Mediation | Providing Mediation Services around the Kootenay",
+  title: "Kootenay Mediation | Providing Mediation Services in Nelson BC and around the Kootenay",
   description:
     "Kootenay Mediation is a mediation and family law service, offering a secure and supportive environment in Nelson, BC for families and individuals seeking peaceful conflict resolution.",
   openGraph: {

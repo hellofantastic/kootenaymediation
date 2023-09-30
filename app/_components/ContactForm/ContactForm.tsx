@@ -159,13 +159,6 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
   );
 };
 const MessageBox = ({ label, name, register, errors, required }: InputFieldProps) => {
-  const htmlRegex = /(<([^>]+)>)/gi;
-  console.log("errors", errors);
-  const validate = (value: string) => {
-    let answer = /(<([^>]+)>)/gi.test(value);
-    console.log("answer", answer);
-    return answer;
-  };
   return (
     <Fragment>
       <div

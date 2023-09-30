@@ -22,6 +22,6 @@ export type InputFieldProps = {
   label: string;
   name: string;
   register: any;
-  errors: FieldErrors;
+  errors: any;
   required?: boolean;
 };

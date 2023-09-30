@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.example.com",
     port: parseInt(process.env.SMTP_PORT || "465"),
-    secure: true,
+    secure: false,
     logger: true,
     debug: true,
     auth: {
@@ -42,8 +42,9 @@ export async function POST(request: NextRequest) {
     firstName +
     ",\n\n" +
     "Your request for consultation has been received by Kootenay Mediation." +
-    "\n I will be responding to you shortly. \n\n" +
-    "Judah Harrison \nKootenay Mediation \nBarrister & Solicitor";
+    "\n I will be responding to you shortly. \n\n\n\n" +
+    "Judah Harrison\nBarrister & Solicitor  \n\nKootenay Mediation" +
+    "\n211-402 Baker St. \n Nelson, B.C.  V1L 4H8\n\nph:  250-777-2369\nfax: 250-984-0808";
 
   //Message to Kootany Mediation
   try {
@@ -55,6 +56,7 @@ export async function POST(request: NextRequest) {
     });
     if (info.messageId) {
       let info = await transporter.sendMail({
+        replyTo: process.env.SMTP_RECIPIENT,
         from: `Kootenay Mediation <${process.env.SMTP_USER}>`,
         to: email,
         subject: "Kootenay Mediation Consultation",

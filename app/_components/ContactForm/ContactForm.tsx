@@ -41,9 +41,9 @@ export const ContactForm = () => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
+        resetForm();
         setSubmitting(false);
         setSubmitSuccess(true);
-        resetForm();
       } else {
         setSubmitting(false);
       }
@@ -90,8 +90,8 @@ export const ContactForm = () => {
             <InputField label={"Phone"} name="phone" errors={errors} register={register} />
             <MessageBox label={"What can I help you with? *"} name="message" errors={errors} register={register} required />
             <Grid templateColumns={{ base: "1fr", md: "1fr 2fr" }} gap={6}>
-              <GridItem>
-                <Button name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
+              <GridItem display="flex" alignItems="center">
+                <Button css={{ marginTop: 0 }} name="Send" backgroundcolor="f0ac77" disabled={isSubmitting ? true : false} />
               </GridItem>
               <GridItem display="flex" alignItems="center">
                 {isSubmitting === true ? (
@@ -120,6 +120,7 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
         htmlFor={name}
         fontSize={["md", "lg"]}
         style={{
+          display: "flex",
           marginBottom: "6px",
         }}
       >
@@ -130,6 +131,8 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
               ? " * required"
               : errors !== undefined && errors[name]?.type === "properEmail"
               ? " * Need a properly formed email"
+              : errors !== undefined && errors[name]?.type === "validate"
+              ? errors[name]?.message
               : null}
           </span>
         ) : null}
@@ -145,12 +148,24 @@ const InputField = ({ label, name, register, errors, required }: InputFieldProps
                 },
               }),
             }
-          : { ...register(name, { required: required ? true : false }) })}
+          : {
+              ...register(name, {
+                required: required ? true : false,
+                validate: (value: string) => value.match(/(<([^>]+)>)/gi) === null || "no HTML code please",
+              }),
+            })}
       />
     </Box>
   );
 };
 const MessageBox = ({ label, name, register, errors, required }: InputFieldProps) => {
+  const htmlRegex = /(<([^>]+)>)/gi;
+  console.log("errors", errors);
+  const validate = (value: string) => {
+    let answer = /(<([^>]+)>)/gi.test(value);
+    console.log("answer", answer);
+    return answer;
+  };
   return (
     <Fragment>
       <div
@@ -168,13 +183,17 @@ const MessageBox = ({ label, name, register, errors, required }: InputFieldProps
           }}
         >
           {label}
-          {required ? (
-            <span style={{ marginLeft: "auto", fontSize: "1rem", color: "rgb(255 0 0)" }}>
-              {errors !== undefined && errors[name] ? " * required" : ""}
-            </span>
-          ) : null}
+          {errors.message?.message && <span style={{ marginLeft: "auto", fontSize: "1rem", color: "rgb(255 0 0)" }}>{errors.message?.message}</span>}
         </Text>
-        <textarea id={name} placeholder={""} rows={8} {...register(name, { required: true })} />
+        <textarea
+          id={name}
+          placeholder={""}
+          rows={8}
+          {...register(name, {
+            required: "* required",
+            validate: (value: string) => value.match(/(<([^>]+)>)/gi) === null || "no HTML code please",
+          })}
+        />
       </div>
     </Fragment>
   );

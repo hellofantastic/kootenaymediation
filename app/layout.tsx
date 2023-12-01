@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://kootenaymediation.com",
+    url: "https://kootenaymediation.ca",
     title: "Kootenay Mediation | Providing Mediation Services around the Kootenay",
     description:
       "Kootenay Mediation is a mediation and family law service, offering a secure and supportive environment in Nelson, BC for families and individuals seeking peaceful conflict resolution.",
